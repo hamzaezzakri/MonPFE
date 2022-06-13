@@ -1,0 +1,46 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pfe_base?createDatabaseIfNotExist=true
+    username: root
+    password:
+  jpa:
+    show_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: zakri7740@gmail.com
+    password: asasdgxekjvqmpwv
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+  batch:
+    initialize-schema: always
+    job:
+      enabled: false
+
+logging:
+  file:
+    name: ./logs/myLogs.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger : %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: ERROR
+    cigma.pfe.controllers: DEBUG
+    org.hibernate: ERROR
+
+
